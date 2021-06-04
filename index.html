@@ -42,22 +42,67 @@
         <div class="logo">
           <img src="./img/logo.png" alt="logo-todo-list" />
         </div>
-        <div class="input-bar">
-          <input type="text" name="todo" class="todo-bar" id="todo" />
-          <button type="submit" class="btn-add">Add</button>
+        <div class="all-tasks-list">
+          <h2>My lists</h2>
+          <ul class="task-list">
+            <li class="active-list">Groceries</li>
+            <li>Work</li>
+            <li>Sports</li>
+          </ul>
+          <form action="">
+            <input
+              type="text"
+              class="new-list"
+              placeholder="new list"
+              aria-label="new list name"
+            />
+            <button class="btn list" aria-label="create new list"></button>
+          </form>
         </div>
-        <div class="tasks-wrapper">
-          <div class="pending">
-            <h1>Pending</h1>
-            <ul>
-              <li>Yoloaaaaaaaaaaaaaaaaaa</li>
-            </ul>
+        <div class="todo-list">
+          <div class="todo-header">
+            <h2 class="title">Groceries</h2>
+            <p class="tasks">3 tasks remaining</p>
           </div>
-          <div class="completed">
-            <h1>Completed</h1>
-            <ul>
-              <li>Yolooo</li>
-            </ul>
+          <div class="todo-body">
+            <div class="tasks">
+              <div class="task">
+                <input type="checkbox" id="task-1" />
+                <label for="task-1">
+                  <span class="custom-check"></span> Tomatoes</label
+                >
+              </div>
+              <!-- /task -->
+              <div class="task">
+                <input type="checkbox" id="task-2" />
+                <label for="task-2">
+                  <span class="custom-check"></span>Lettuce</label
+                >
+              </div>
+              <!-- /task -->
+              <div class="task">
+                <input type="checkbox" id="task-3" />
+                <label for="task-3">
+                  <span class="custom-check"></span>Bread</label
+                >
+              </div>
+              <!-- /task -->
+            </div>
+            <div class="new-task">
+              <form action="">
+                <input
+                  type="text"
+                  class="new-task"
+                  placeholder="new task"
+                  aria-label="new task name"
+                />
+                <button class="btn task" aria-label="create new task"></button>
+              </form>
+            </div>
+            <div class="delete-task">
+              <button class="btn-delete-list">Clear tasks</button>
+              <button class="btn-delete-task">Delete list</button>
+            </div>
           </div>
         </div>
       </section>

@@ -1,86 +1,33 @@
 main {
-  background-color: #8ec5fc;
-
-  background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+  background: #396afc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2948ff, #396afc);
+  background: linear-gradient(to right, #2948ff, #396afc);
 }
 .todo {
   height: 100vh;
-  @include flex(flex-start, center, column);
-  width: 95%;
-  margin: auto;
+  display: grid;
+  grid:
+    "header header header header" 25rem
+    "...... lists active ......." auto /
+    1fr minmax(10rem, 30rem) minmax(25rem, 50rem) 1fr;
 }
 .logo {
+  grid-area: header;
+  text-align: center;
+  height: 25rem;
   img {
-    height: 30rem;
+    height: 25rem;
   }
-}
-.input-bar {
-  width: 100vw;
-  @include flex(center, center, row);
-  input {
-    width: 40rem;
-    padding: 1rem;
-    margin: 2rem;
-    outline: none;
-    border-radius: 1rem;
-  }
-}
-.todo-bar:hover {
-  background-color: #fff;
-  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
-  border-color: rgba(223, 225, 229, 0);
 }
 
-.btn-add {
-  background-image: linear-gradient(
-    to right,
-    #7474bf 0%,
-    #348ac7 51%,
-    #7474bf 100%
-  );
+.all-tasks-list {
+  grid-area: lists;
+  color: $light;
 }
-.btn-add {
-  margin: 1rem;
-  padding: 1rem 3rem;
-  text-align: center;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  border: none;
-  border-radius: 1rem;
+.task-list {
+  line-height: 2;
 }
 
-.btn-add:hover {
-  background-position: right center;
-  color: #fff;
-  text-decoration: none;
-}
-.tasks-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 47.5vw);
-  margin-top: 3rem;
-}
-.pending,
-.completed {
-  text-align: center;
-  @include flex(center, center, column);
-  ul {
-    margin-top: 3rem;
-  }
-  li {
-    margin-top: 1.2rem;
-    padding: 1rem 3rem;
-    border-radius: 1rem;
-    color: white;
-  }
-}
-.pending {
-  li {
-    background-image: linear-gradient(to right, #348ac7 0%, #7474bf 100%);
-  }
-}
-.completed {
-  li {
-    background-image: linear-gradient(to left, #348ac7 0%, #7474bf 100%);
-  }
+.todo-list {
+  grid-area: active;
 }
