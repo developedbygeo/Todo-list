@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Michroma&family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Michroma&family=Open+Sans:ital,wght@0,300;1,800&display=swap"
       rel="stylesheet"
     />
     <link
@@ -52,17 +52,17 @@
           <form action="">
             <input
               type="text"
-              class="new-list"
+              class="new-list-add"
               placeholder="new list"
               aria-label="new list name"
             />
-            <button class="btn list" aria-label="create new list"></button>
+            <button class="btn list" aria-label="create new list">+</button>
           </form>
         </div>
         <div class="todo-list">
           <div class="todo-header">
             <h2 class="title">Groceries</h2>
-            <p class="tasks">3 tasks remaining</p>
+            <p class="task-counter">3 tasks remaining</p>
           </div>
           <div class="todo-body">
             <div class="tasks">
@@ -92,16 +92,16 @@
               <form action="">
                 <input
                   type="text"
-                  class="new-task"
+                  class="new-task-add"
                   placeholder="new task"
                   aria-label="new task name"
                 />
-                <button class="btn task" aria-label="create new task"></button>
+                <button class="btn task" aria-label="create new task">+</button>
               </form>
             </div>
             <div class="delete-task">
-              <button class="btn-delete-list">Clear tasks</button>
-              <button class="btn-delete-task">Delete list</button>
+              <button class="btn btn-delete-list">Clear tasks</button>
+              <button class="btn btn-delete-task">Delete list</button>
             </div>
           </div>
         </div>

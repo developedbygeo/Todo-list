@@ -8,7 +8,8 @@ main {
   display: grid;
   grid:
     "header header header header" 25rem
-    "...... lists active ......." auto /
+    "...... lists active ......." auto
+    ". . . ." /
     1fr minmax(10rem, 30rem) minmax(25rem, 50rem) 1fr;
 }
 .logo {
@@ -19,15 +20,105 @@ main {
     height: 25rem;
   }
 }
-
+.all-tasks-list h2,
+.todo-header h2 {
+  font-family: "Michroma", sans-serif;
+  color: $light;
+  letter-spacing: 0.3rem;
+}
 .all-tasks-list {
   grid-area: lists;
   color: $light;
 }
 .task-list {
   line-height: 2;
+  font-size: 1.3rem;
+  padding-left: 1.7rem;
+  list-style: circle;
+}
+.active-list {
+  font-weight: 800;
+  text-decoration: underline;
 }
 
 .todo-list {
   grid-area: active;
+  background: rgba($color: $light, $alpha: 0.05);
+}
+.todo-header {
+  @include flex(space-between, center, row);
+  background: rgba($color: $dark, $alpha: 0.05);
+  padding: $spacing;
+}
+.todo-body {
+  padding: $spacing;
+}
+.task-counter {
+  font-size: 1.2rem;
+  padding-left: 0.2rem;
+}
+
+.new-list-add,
+.new-task-add {
+  border: none;
+  border-bottom: 1px solid $light;
+  color: inherit;
+  font-size: inherit;
+  outline: none;
+  transition: all 125ms ease-in-out;
+  background: transparent;
+  order: 2;
+}
+
+.new-list-add {
+  font-size: 1.4rem;
+}
+.new-list-add:hover,
+.new-task-add:hover {
+  border-bottom-width: 0.25rem;
+}
+
+.new-list-add:hover::placeholder,
+.new-task-add:hover::placeholder {
+  opacity: 0.35;
+}
+.new-list-add:focus,
+.new-task-add:focus {
+  border-bottom-width: 0.35rem;
+}
+.new-list-add:focus::placeholder,
+.new-task-add:focus::placeholder {
+  opacity: 0.5;
+}
+
+form {
+  display: flex;
+}
+.btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  color: inherit;
+}
+.btn.list,
+.btn.task {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-right: 0.5rem;
+  transition: 250ms ease-in;
+}
+.btn.list:hover,
+.btn.task:hover {
+  opacity: 0.5;
+}
+.btn-delete-list,
+.btn-delete-task {
+  transition: 150ms all ease-in;
+  margin-right: 1rem;
+}
+
+.btn-delete-task:hover,
+.btn-delete-list:hover {
+  text-decoration: underline;
+  opacity: 0.5;
 }
