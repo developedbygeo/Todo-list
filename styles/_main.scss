@@ -7,9 +7,9 @@ main {
   height: 100vh;
   display: grid;
   grid:
-    "header header header header" 25rem
-    "...... lists active ......." auto
-    ". . . ." /
+    ". header header ." 35rem
+    ". lists active  ." auto
+    ". . . .  " /
     1fr minmax(10rem, 30rem) minmax(25rem, 50rem) 1fr;
 }
 .logo {
@@ -29,12 +29,23 @@ main {
 .all-tasks-list {
   grid-area: lists;
   color: $light;
+  padding: $spacing;
 }
 .task-list {
   line-height: 2;
   font-size: 1.3rem;
   padding-left: 1.7rem;
   list-style: circle;
+  padding: $spacing-form;
+}
+.list-item {
+  cursor: pointer;
+  transition: 100ms all ease-in;
+  transform: scale(1);
+}
+.list-item:hover {
+  opacity: 0.5;
+  transform: scale(1.05);
 }
 .active-list {
   font-weight: 800;
@@ -45,6 +56,7 @@ main {
   grid-area: active;
   background: rgba($color: $light, $alpha: 0.05);
 }
+
 .todo-header {
   @include flex(space-between, center, row);
   background: rgba($color: $dark, $alpha: 0.05);
@@ -54,8 +66,12 @@ main {
   padding: $spacing;
 }
 .task-counter {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   padding-left: 0.2rem;
+  transition: 100ms all ease-in;
+}
+.task-counter:hover {
+  font-size: 1.5rem;
 }
 
 .new-list-add,
@@ -77,10 +93,13 @@ main {
 .new-task-add:hover {
   border-bottom-width: 0.25rem;
 }
+.title {
+  margin: 0 1rem 0 0;
+}
 
 .new-list-add:hover::placeholder,
 .new-task-add:hover::placeholder {
-  opacity: 0.35;
+  opacity: 1;
 }
 .new-list-add:focus,
 .new-task-add:focus {
@@ -90,35 +109,88 @@ main {
 .new-task-add:focus::placeholder {
   opacity: 0.5;
 }
+.new-task-add::after {
+  display: none !important;
+}
 
 form {
   display: flex;
+  margin-top: $spacing-form;
 }
-.btn {
+.btn,
+.btn-task {
   cursor: pointer;
   background: 0;
   border: 0;
   color: inherit;
 }
 .btn.list,
-.btn.task {
+.btn-task {
   font-size: 2.5rem;
   font-weight: 900;
   margin-right: 0.5rem;
   transition: 250ms ease-in;
 }
 .btn.list:hover,
-.btn.task:hover {
+.btn-task:hover {
   opacity: 0.5;
 }
 .btn-delete-list,
 .btn-delete-task {
   transition: 150ms all ease-in;
-  margin-right: 1rem;
+  font-weight: 800;
+  opacity: 0.85;
+  font-size: 1.3rem;
+  margin: 2rem;
 }
 
 .btn-delete-task:hover,
 .btn-delete-list:hover {
   text-decoration: underline;
   opacity: 0.5;
+}
+[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+.custom-check {
+  display: inline-block;
+  width: $size;
+  height: $size;
+  cursor: pointer;
+  border: 1px solid $light;
+  border-radius: 50%;
+  transform: scale(0.9);
+  transition: transform 100ms ease-in;
+  margin-right: $size;
+}
+.task label {
+  @include flex(flex-start, center, row);
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.task {
+  position: relative;
+  transition: 100ms all ease-in-out;
+}
+.task::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -0.4rem;
+  height: 1px;
+  opacity: 0.35;
+  background: $light;
+}
+.task:hover .custom-check,
+[type="checkbox"]:focus + label .custom-check {
+  transform: scale(1.25);
+}
+[type="checkbox"]:checked + label .custom-check {
+  border-color: rgba($color: $light, $alpha: 1);
+  box-shadow: inset 0 0 0px 10px #fff;
+}
+[type="checkbox"]:checked + label {
+  opacity: 0.35;
 }
