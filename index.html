@@ -80,13 +80,6 @@
                 >
               </div>
               <!-- /task -->
-              <div class="task">
-                <input type="checkbox" id="task-3" />
-                <label for="task-3">
-                  <span class="custom-check"></span>Bread</label
-                >
-              </div>
-              <!-- /task -->
             </div>
             <div class="new-task">
               <form action="">
@@ -110,5 +103,11 @@
       </section>
     </main>
     <script defer src="./app.js"></script>
+    <template class="task-template">
+      <div class="task">
+        <input type="checkbox" />
+        <label> <span class="custom-check"></span></label>
+      </div>
+    </template>
   </body>
 </html>

@@ -5,10 +5,11 @@ let allLists = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || [];
 let selectedList = localStorage.getItem(LOCAL_STORAGE_SELECTED);
 const listsContainer = document.querySelector(".task-list");
 // todo-container (tasks)
-const todoCurrentContainer = document.querySelector(".todo-list");
-const todoCurrentTaskList = document.querySelector(".current-todo-tasklist");
+const todoCurrentTaskTitle = document.querySelector(".current-todo-tasklist");
+const todoCurrentTaskList = document.querySelector(".tasks");
 const todoCurrentTaskCounter = document.querySelector(".task-counter");
 const todoTaskWrapper = document.querySelector(".todo-list");
+const templateTask = document.querySelector(".task-template");
 // new list
 const addNewListForm = document.querySelector(".add-new-list-form");
 const addNewListInput = document.querySelector(".new-list-add");
@@ -51,13 +52,30 @@ function listAddingProcess() {
     todoTaskWrapper.style.display = "none";
   } else {
     todoTaskWrapper.style.display = "";
-    todoCurrentTaskList.innerText = selectedListElement.name;
+    todoCurrentTaskTitle.innerText = selectedListElement.name;
     taskCount(selectedList);
+    clearExistingElements(todoCurrentTaskList);
+    taskRender(selectedList);
   }
 }
+function taskRender(selectedList) {
+  const selectedListElement = allLists.find((el) => el.id === selectedList);
+  // console.log(selectedListElement);
+  selectedListElement.tasks.forEach((task) => {
+    const newTask = document.importNode(templateTask.content, true);
+    const check = newTask.querySelector("input");
+    check.id = task.id;
+    check.checked = task.complete;
+    const label = newTask.querySelector("label");
+    label.htmlFor = task.id;
+    label.append(task.name);
+    todoCurrentTaskList.appendChild(newTask);
+  });
+}
+
 function taskCount(selectedList) {
-  console.log(selectedList);
-  const pendingTasks = selectedList.tasks.filter(
+  const selectedListElement = allLists.find((el) => el.id === selectedList);
+  const pendingTasks = selectedListElement.tasks.filter(
     (task) => !task.complete
   ).length;
   const taskWordModifier = pendingTasks === 1 ? "task" : "tasks";
@@ -92,7 +110,11 @@ function saveAndListAddingProcess() {
 }
 
 function createNewList(name) {
-  return { id: Date.now().toString(), name: name, tasks: ["test1"] };
+  return {
+    id: Date.now().toString(),
+    name: name,
+    tasks: [],
+  };
 }
 
 listAddingProcess();
