@@ -46,7 +46,7 @@ addNewTaskForm.addEventListener("submit", (e) => {
 });
 
 // for ticking off tasks
-todoTaskWrapper.addEventListener("click", (e) => {
+todoCurrentTaskList.addEventListener("click", (e) => {
   if (e.target.tagName.toLowerCase() === "input") {
     const selectedListElement = allLists.find((el) => el.id === selectedList);
     const selectedTaskElement = selectedListElement.tasks.find(

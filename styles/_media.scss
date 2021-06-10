@@ -1,0 +1,50 @@
+@media screen and (min-width: 281px) and (max-width: 480px) {
+  html {
+    font-size: 33.5%;
+  }
+  .logo {
+    height: 20rem;
+    img {
+      height: 20rem;
+    }
+  }
+  .todo {
+    grid:
+      ". header header ." 30rem ". lists active  ." auto ". . . .  "/1fr minmax(
+        10rem,
+        30rem
+      )
+      minmax(25rem, 50rem) 1fr;
+  }
+
+  .task-list {
+    margin-top: 1.5rem;
+    li {
+      font-size: 2rem;
+    }
+  }
+  .task {
+    label {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media screen and (max-width: 280px) {
+  html {
+    font-size: 22%;
+  }
+  .todo {
+    grid:
+      ". header header ." 25rem ". lists active  ." auto ". . . .  "/1fr minmax(
+        10rem,
+        30rem
+      )
+      minmax(25rem, 50rem) 1fr;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 769px) {
+  html {
+    font-size: 50.5%;
+  }
+}
