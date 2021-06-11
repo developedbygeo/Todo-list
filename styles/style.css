@@ -29,8 +29,44 @@ h1 {
 }
 
 main {
+  position: relative;
   background: #396afc;
-  /* fallback for old browsers */
+  /* fallback */
+  background: linear-gradient(to right, #2948ff, #396afc);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  font-size: 1.5rem;
+  border-radius: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  background: #f4f4f4;
+  opacity: 0.75;
+  color: #333;
+  transform: scale(0.75);
+  transition: all 200ms ease-in-out;
+}
+
+.theme-toggle:hover {
+  opacity: 1;
+  transform: scale(0.9);
+  border: 1px solid black;
+}
+
+.dark-theme {
+  position: relative;
+  background: #232526;
+  /* fallback */
+  background: linear-gradient(to right, #414345, #232526);
+}
+
+.light-theme {
+  position: relative;
+  background: #396afc;
+  /* fallback */
   background: linear-gradient(to right, #2948ff, #396afc);
 }
 
@@ -63,19 +99,16 @@ main {
   padding: 2.5rem;
 }
 
+.all-tasks-list-dark {
+  background: rgba(244, 244, 244, 0.075);
+}
+
 .task-list {
   line-height: 2;
   font-size: 1.3rem;
   padding-left: 1.7rem;
   list-style: circle;
   padding: 1rem;
-}
-
-.list-item {
-  cursor: pointer;
-  transition: 100ms all ease-in;
-  opacity: 0.7;
-  transform: scale(1);
 }
 
 .list-item:hover {
