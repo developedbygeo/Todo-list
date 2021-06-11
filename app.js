@@ -37,12 +37,13 @@ BtnThemeToggle.addEventListener("click", (e) => {
     bodyMain.classList == "" ||
     prefDarkTheme.matches
   ) {
-    BtnThemeToggle.innerHTML = "Light Theme";
+    BtnThemeToggle.innerHTML = `<i class="fas fa-sun"></i>`;
     bodyMain.classList.toggle("dark-theme");
     myLists.classList.add("all-tasks-list-dark");
     theme = "dark";
   } else {
-    BtnThemeToggle.innerHTML = "Dark Theme";
+    BtnThemeToggle.innerHTML = `<i class="far fa-moon"></i>`;
+
     bodyMain.classList.toggle("dark-theme");
     myLists.classList.remove("all-tasks-list-dark");
     theme = "light";
@@ -196,13 +197,10 @@ function createNewTask(name) {
 function checkTheme() {
   if (currentTheme === "dark") {
     bodyMain.classList.value = "dark-theme";
-    myLists.classList.add("all-tasks-list-dark");
-    BtnThemeToggle.innerHTML = "Light Theme";
+    BtnThemeToggle.innerHTML = `<i class="fas fa-sun"></i>`;
   } else if (currentTheme === "light") {
-    bodyMain.classList.vlaue = "light-theme";
-    myLists.classList.remove("all-tasks-list-dark");
-
-    BtnThemeToggle.innerHTML = "Dark Theme";
+    bodyMain.classList.value = "";
+    BtnThemeToggle.innerHTML = `<i class="far fa-moon"></i>`;
   }
 }
 checkTheme();

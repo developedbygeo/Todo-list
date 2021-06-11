@@ -40,20 +40,24 @@ main {
   top: 2%;
   right: 2%;
   font-size: 1.5rem;
-  border-radius: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  background: #f4f4f4;
-  opacity: 0.75;
+  border-radius: 100%;
+  padding: 1rem 1.5rem;
+  border: 2px solid rgba(244, 244, 244, 0.9);
+  opacity: 1;
   color: #333;
   transform: scale(0.75);
   transition: all 200ms ease-in-out;
+  background: none;
+}
+
+.theme-toggle i {
+  pointer-events: none;
+  color: white;
 }
 
 .theme-toggle:hover {
   opacity: 1;
   transform: scale(0.9);
-  border: 1px solid black;
 }
 
 .dark-theme {
@@ -314,6 +318,13 @@ form {
   .task label {
     font-size: 2rem;
   }
+  .theme-toggle {
+    top: 1%;
+    right: 2%;
+    padding: 1.5rem 2rem;
+    font-size: 1.7rem;
+    opacity: 0.8;
+  }
 }
 
 @media screen and (max-width: 280px) {
@@ -328,6 +339,10 @@ form {
 @media screen and (min-width: 481px) and (max-width: 769px) {
   html {
     font-size: 50.5%;
+  }
+  .theme-toggle {
+    top: 1%;
+    right: 2%;
   }
 }
 /*# sourceMappingURL=style.css.map */

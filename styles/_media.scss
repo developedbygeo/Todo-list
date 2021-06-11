@@ -28,6 +28,13 @@
       font-size: 2rem;
     }
   }
+  .theme-toggle {
+    top: 1%;
+    right: 2%;
+    padding: 1.5rem 2rem;
+    font-size: 1.7rem;
+    opacity: 0.8;
+  }
 }
 
 @media screen and (max-width: 280px) {
@@ -46,5 +53,9 @@
 @media screen and (min-width: 481px) and (max-width: 769px) {
   html {
     font-size: 50.5%;
+  }
+  .theme-toggle {
+    top: 1%;
+    right: 2%;
   }
 }
