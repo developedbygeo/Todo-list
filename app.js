@@ -31,6 +31,7 @@ const myLists = document.querySelector(".all-tasks-list");
 
 // for toggling the theme to dark
 BtnThemeToggle.addEventListener("click", (e) => {
+  e.stopPropagation();
   let theme;
   if (
     bodyMain.classList.contains("light") ||
