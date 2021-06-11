@@ -23,7 +23,7 @@ const BtnDeleteTasks = document.querySelector(".btn-clear-completed-tasks");
 // dark theme
 const BtnThemeToggle = document.querySelector(".theme-toggle");
 const prefDarkTheme = window.matchMedia("(prefers-color-scheme: dark)");
-let currentTheme = localStorage.getItem("theme");
+const currentTheme = localStorage.getItem("theme");
 const bodyMain = document.querySelector("main");
 const myLists = document.querySelector(".all-tasks-list");
 // Event Listeners
