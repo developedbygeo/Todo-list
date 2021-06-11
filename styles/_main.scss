@@ -10,7 +10,7 @@ main {
   right: 2%;
   font-size: 1.5rem;
   border-radius: 100%;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 2rem;
   border: 2px solid rgba(244, 244, 244, 0.9);
   opacity: 1;
   color: $dark;
@@ -115,12 +115,16 @@ main {
 .new-task-add {
   border: none;
   border-bottom: 1px solid $light;
-  color: inherit;
+  color: rgba(244, 244, 244, 1);
   font-size: inherit;
   outline: none;
   transition: all 125ms ease-in-out;
   background: transparent;
   order: 2;
+}
+.new-list-add::placeholder,
+.new-task-add::placeholder {
+  color: rgba(244, 244, 244, 0.8);
 }
 
 .new-list-add {
