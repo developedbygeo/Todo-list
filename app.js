@@ -42,7 +42,7 @@ BtnThemeToggle.addEventListener("click", (e) => {
     theme = "dark";
   } else {
     bodyMain.classList.toggle("dark-theme");
-    myLists.classList.remove("all-tasks-list-dark");
+    myLists.classList.value = "all-tasks-list";
     theme = "light";
   }
   localStorage.setItem("theme", theme);
@@ -197,7 +197,7 @@ function checkTheme() {
     myLists.classList.add("all-tasks-list-dark");
   } else if (currentTheme === "light") {
     bodyMain.classList.value = "";
-    myLists.classList.remove("all-tasks-list-dark");
+    myLists.classList.value = "all-tasks-list";
   }
 }
 checkTheme();
