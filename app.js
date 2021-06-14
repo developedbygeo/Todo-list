@@ -184,13 +184,16 @@ function createNewTask(name) {
 const darkTheme = () => {
   bodyMain.classList.value = "dark-theme";
   myLists.classList.add("all-tasks-list-dark");
+  BtnThemeToggle.innerHTML = `<i class="fas fa-sun"></i>`;
   localStorage.setItem("theme", "dark");
 };
 const lightTheme = () => {
   bodyMain.classList.value = "";
   myLists.classList.remove("all-tasks-list-dark");
+  BtnThemeToggle.innerHTML = `<i class="fas fa-moon"></i>`;
   localStorage.setItem("theme", "light");
 };
+
 // check on loading for existing localstorage value
 if (currentTheme === "dark") {
   darkTheme();
